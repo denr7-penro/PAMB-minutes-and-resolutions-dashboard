@@ -1,0 +1,207 @@
+:root {
+      --denr-green: #1a3627;
+      --denr-dark-bar: #0b111e;
+      --primary-green: #0d8a4f;
+      --light-bg: #f3f4f6;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--light-bg);
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .custom-header-wrapper {
+      background-color: var(--denr-green);
+      color: white;
+      width: 100%;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      margin-bottom: 1.25rem;
+    }
+
+    .header-main-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem 0.5rem;
+      gap: 1rem;
+    }
+
+    .header-text-center {
+      text-align: center;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .header-text-center p { margin: 0; line-height: 1.3; }
+    .text-rep { font-size: 0.85rem; font-weight: 500; letter-spacing: 1px; }
+    .text-dept { font-size: 1.6rem; font-weight: 800; letter-spacing: 0.5px; margin-top: 2px !important; margin-bottom: 4px !important; }
+    .text-sub { font-size: 0.9rem; font-weight: 600; }
+
+    .header-divider {
+      border-top: 1px solid rgba(255,255,255,0.4);
+      width: 75%;
+      margin: 15px auto 10px;
+    }
+
+    .header-title-bar { text-align: center; padding: 0 1rem 15px; }
+    .header-title-bar h2 { font-size: 1.4rem; font-weight: 800; margin: 0; letter-spacing: 1px; }
+
+    .sub-header-bar {
+      background-color: var(--denr-dark-bar);
+      padding: 8px 30px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #e2e8f0;
+      gap: 15px;
+    }
+
+    .sub-header-bar .separator { color: #475569; margin: 0 5px; }
+    .logo-img { height: 100px; width: auto; object-fit: contain; flex-shrink: 0; }
+
+    .dashboard-container { padding: 0 2rem 2rem; }
+
+    .filter-card { border-top: 4px solid #0f172a !important; }
+    .filter-label { font-size: 0.72rem; font-weight: 700; color: #64748b; margin-bottom: 0.35rem; }
+
+    .form-control, .form-select {
+      min-height: 42px;
+      border-radius: 8px;
+      font-size: 0.86rem;
+    }
+
+    .btn-pdf-green {
+      background-color: var(--primary-green);
+      color: white;
+      border: none;
+      font-weight: 700;
+      border-radius: 7px;
+    }
+    .btn-pdf-green:hover, .btn-pdf-green:focus { background-color: #09683a; color: white; }
+
+    .kpi-card {
+      background: white;
+      border-radius: 8px;
+      border-left: 5px solid var(--primary-green);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .chart-card { min-width: 0; }
+    .chart-box { width: 100%; height: 300px; }
+
+    .google-visualization-table-table,
+    .google-visualization-table-th,
+    .google-visualization-table-td,
+    .google-visualization-table-page-numbers { font-family: 'Montserrat', sans-serif !important; }
+
+    .google-visualization-table-table { width: 100% !important; }
+    .google-visualization-table-tr-head { background-color: #0f172a !important; color: #fff !important; }
+    .google-visualization-table-tr-head a,
+    .google-visualization-table-th { color: #fff !important; }
+    .google-visualization-table-td { padding: 10px 12px !important; vertical-align: middle; font-size: 0.84rem; }
+
+    /* Mobile document cards are hidden on desktop. */
+    #mobile-documents { display: none; }
+
+    .mobile-doc-card {
+      background: #fff;
+      border-radius: 12px;
+      border-left: 5px solid var(--primary-green);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .mobile-doc-pa { font-size: 0.78rem; font-weight: 800; color: #0f172a; text-transform: uppercase; }
+    .mobile-doc-type {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 4px 9px;
+      font-size: 0.67rem;
+      font-weight: 800;
+      margin: 7px 0;
+      background: #e8f5ee;
+      color: #08743f;
+    }
+    .mobile-doc-type.minutes { background: #eef2ff; color: #3730a3; }
+    .mobile-doc-title { font-size: 0.86rem; line-height: 1.45; font-weight: 600; color: #334155; }
+    .mobile-doc-remark { font-size: 0.75rem; font-weight: 700; color: #64748b; margin-top: 8px; }
+    .mobile-doc-card .btn { width: 100%; min-height: 42px; margin-top: 10px; }
+
+    .mobile-results-count { font-size: 0.75rem; color: #64748b; font-weight: 600; }
+
+    @media (max-width: 991.98px) {
+      .header-main-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .logo-img { height: 78px; }
+      .text-dept { font-size: 1.25rem; }
+      .dashboard-container { padding-left: 1rem; padding-right: 1rem; }
+    }
+
+    @media (max-width: 767.98px) {
+      .custom-header-wrapper { margin-bottom: 0.75rem; }
+
+      .header-main-section {
+        padding: 0.8rem 0.7rem 0.35rem;
+        gap: 0.45rem;
+      }
+
+      .logo-img { height: 50px; }
+      .text-rep { font-size: 0.52rem; letter-spacing: 0.5px; }
+      .text-dept { font-size: 0.78rem; line-height: 1.15; letter-spacing: 0; margin-bottom: 3px !important; }
+      .text-sub { font-size: 0.58rem; }
+
+      .header-divider { width: 90%; margin: 8px auto 7px; }
+      .header-title-bar { padding: 0 0.5rem 9px; }
+      .header-title-bar h2 { font-size: 0.83rem; letter-spacing: 0.4px; }
+
+      .sub-header-bar {
+        padding: 7px 8px;
+        justify-content: center;
+        gap: 6px;
+        font-size: 0.61rem;
+        flex-wrap: wrap;
+        line-height: 1.2;
+      }
+      .sub-header-bar .separator { margin: 0 1px; }
+
+      .dashboard-container { padding: 0 0.7rem 1.25rem; }
+
+      .filter-card .card-body { padding: 0.85rem; }
+      .filter-heading-row { gap: 8px; }
+      .filter-heading-row h6 { font-size: 0.78rem; }
+      .filter-heading-row .btn { font-size: 0.68rem; padding: 6px 9px; }
+
+      .form-control, .form-select { min-height: 46px; font-size: 0.82rem; }
+      .filter-label { margin-top: 2px; }
+
+      .kpi-card { padding: 0.75rem !important; }
+      .kpi-card .fs-2 { font-size: 1.45rem !important; }
+      .kpi-card .small { font-size: 0.61rem !important; }
+
+      .chart-card { padding: 0.7rem !important; }
+      .chart-card h6 { font-size: 0.76rem; }
+      .chart-box { height: 255px; }
+
+      #desktop-table { display: none; }
+      #mobile-documents { display: block; }
+
+      .directory-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+      .directory-header h6 { font-size: 0.78rem; }
+    }
+
+    @media (max-width: 380px) {
+      .logo-img { height: 44px; }
+      .text-dept { font-size: 0.7rem; }
+      .text-sub { font-size: 0.53rem; }
+      .header-title-bar h2 { font-size: 0.75rem; }
+      .sub-header-bar { font-size: 0.56rem; }
+      .chart-box { height: 235px; }
+    }

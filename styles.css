@@ -727,3 +727,77 @@ body { background: #f3f6f4; color: #172923; padding-bottom: 0; }
   html { scroll-behavior: auto; }
   .mobile-nav-item { transition: none; }
 }
+
+/* ============================================================
+   COMPACT MOBILE LAYOUT — more records visible above the fold
+   Keeps existing element IDs and JavaScript behavior unchanged.
+   ============================================================ */
+@media (max-width: 767.98px) {
+  .custom-header-wrapper {
+    margin-bottom: 8px;
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0 4px 12px rgba(15,45,31,.10);
+  }
+  .header-main-section {
+    padding: 7px 10px 6px !important;
+    gap: 7px;
+  }
+  .header-main-section > div:first-child img,
+  .header-main-section .logo-img {
+    width: 34px !important;
+    height: 34px !important;
+    max-width: 34px !important;
+    object-fit: contain;
+  }
+  .header-text-center p { margin-bottom: 1px !important; line-height: 1.12; }
+  .header-text-center .text-rep { font-size: .48rem !important; }
+  .header-text-center .text-dept { font-size: .53rem !important; }
+  .header-text-center .text-sub { font-size: .49rem !important; }
+  .header-divider { margin: 0 10px; }
+  .header-title-bar { padding: 6px 10px 7px !important; }
+  .header-title-bar h2 { font-size: .70rem !important; line-height: 1.25; margin: 0; }
+  .sub-header-bar { padding: 5px 8px !important; gap: 6px; font-size: .55rem !important; line-height: 1.2; }
+  .dashboard-container { padding-inline: 8px; padding-bottom: 10px; }
+
+  #filters-section { margin-bottom: 8px !important; border-radius: 12px !important; }
+  .filter-card .card-body { padding: 9px 10px !important; }
+  .filter-heading-row { margin-bottom: 7px !important; }
+  .filter-heading-row h6 { font-size: .69rem; }
+  .filter-heading-row .btn { padding: 3px 7px; font-size: .65rem; border-radius: 8px; }
+  #filters-section .row { --bs-gutter-x: .45rem; --bs-gutter-y: .4rem; }
+  .filter-label { margin-bottom: 3px !important; font-size: .57rem !important; line-height: 1.1; }
+  #filters-section .form-control,
+  #filters-section .form-select { min-height: 34px; height: 34px; padding: 5px 9px; font-size: .72rem; border-radius: 8px; }
+  #filters-section .col-12 { width: 50%; }
+  #filters-section .col-12:first-child { width: 100%; }
+
+  /* Three KPI tiles share one row instead of consuming three full screens. */
+  #dashboard-content > .row:has(.kpi-card) { --bs-gutter-x: .4rem; --bs-gutter-y: .4rem; margin-bottom: 8px !important; }
+  #dashboard-content > .row:has(.kpi-card) > [class*="col-"] { width: 33.3333%; padding-inline: 3px; }
+  .kpi-card { min-height: 67px !important; padding: 8px 6px !important; border-radius: 11px; }
+  .kpi-card .small { font-size: .51rem !important; line-height: 1.15; letter-spacing: 0 !important; }
+  .kpi-card .fs-2 { font-size: 1.28rem !important; line-height: 1.25; margin-top: 3px; }
+
+  /* Put both charts side-by-side and reduce empty chart canvas space. */
+  #reports-section { --bs-gutter-x: .4rem; --bs-gutter-y: .4rem; margin-bottom: 8px !important; }
+  #reports-section > [class*="col-"] { width: 50%; padding-inline: 3px; }
+  .chart-card { height: 100%; padding: 8px 5px 5px !important; border-radius: 11px !important; }
+  .chart-card h6 { min-height: 2.15em; margin-bottom: 2px !important; font-size: .62rem !important; line-height: 1.15 !important; text-align: center; }
+  .chart-box { height: 155px !important; min-height: 0 !important; width: 100%; overflow: hidden; }
+  .chart-box table { font-size: 9px !important; }
+
+  #documents-section { padding: 10px !important; border-radius: 12px !important; }
+  .directory-header { margin-bottom: 8px !important; gap: 5px; }
+  .directory-header h6 { font-size: .78rem !important; }
+  .mobile-doc-card { padding: 10px; margin-bottom: 8px; border-radius: 12px; }
+  .mobile-doc-title { font-size: .83rem; line-height: 1.35; }
+  .mobile-doc-card .btn { min-height: 36px; padding: 7px 10px; margin-top: 8px; }
+}
+@media (max-width: 380px) {
+  .header-main-section > div:first-child img,
+  .header-main-section .logo-img { width: 29px !important; height: 29px !important; max-width: 29px !important; }
+  .header-text-center .text-dept { font-size: .47rem !important; }
+  .chart-box { height: 140px !important; }
+  .chart-card h6 { font-size: .57rem !important; }
+  .kpi-card .small { font-size: .47rem !important; }
+}

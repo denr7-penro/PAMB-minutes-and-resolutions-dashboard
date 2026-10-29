@@ -16,7 +16,7 @@
   <link rel="apple-touch-icon" href="./DENR_Official_Logo_512.png">
 
   <!-- Existing styling and libraries -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <script src="https://www.gstatic.com/charts/loader.js"></script>
@@ -54,6 +54,15 @@
       <span><i class="bi bi-calendar-event-fill" aria-hidden="true"></i> <span id="live-date"></span></span>
     </div>
   </div>
+
+  <!-- Desktop navigation: visible on PC/tablet so document type is easy to identify. -->
+  <nav class="desktop-nav" aria-label="Dashboard navigation">
+    <button type="button" class="desktop-nav-item is-active" data-nav="home"><i class="bi bi-house-door-fill" aria-hidden="true"></i> Home</button>
+    <button type="button" class="desktop-nav-item" data-nav="resolutions"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> Resolutions</button>
+    <button type="button" class="desktop-nav-item" data-nav="minutes"><i class="bi bi-journal-text" aria-hidden="true"></i> Minutes</button>
+    <button type="button" class="desktop-nav-item" data-nav="reports"><i class="bi bi-bar-chart-line" aria-hidden="true"></i> Reports</button>
+    <button type="button" class="desktop-nav-item" data-nav="more"><i class="bi bi-sliders" aria-hidden="true"></i> Filters</button>
+  </nav>
 
   <main>
     <div id="loader" class="text-center my-5 py-5" role="status" aria-live="polite">
@@ -174,7 +183,7 @@
 
   <script>
     (function () {
-      const navItems = Array.from(document.querySelectorAll('.mobile-nav-item'));
+      const navItems = Array.from(document.querySelectorAll('.mobile-nav-item, .desktop-nav-item'));
       function setActive(name) {
         navItems.forEach(function (item) {
           const active = item.dataset.nav === name;

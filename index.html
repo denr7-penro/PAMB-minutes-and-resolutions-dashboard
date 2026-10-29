@@ -24,7 +24,7 @@
 </head>
 <body>
 
-  <div class="custom-header-wrapper">
+  <div class="custom-header-wrapper" id="home-section">
     <div class="header-main-section">
       <div>
         <img src="./DENR_Official_Logo_512.png" alt="DENR Official Logo">
@@ -63,7 +63,7 @@
 
     <div id="dashboard-content" class="dashboard-container d-none">
 
-      <section class="card border-0 shadow-sm mb-3 filter-card" aria-label="Dashboard filters">
+      <section id="filters-section" class="card border-0 shadow-sm mb-3 filter-card" aria-label="Dashboard filters">
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center mb-3 filter-heading-row">
             <h6 class="fw-bold text-dark m-0"><i class="bi bi-funnel-fill me-1" aria-hidden="true"></i> FILTERS</h6>
@@ -122,7 +122,7 @@
         </div>
       </section>
 
-      <section class="row g-3 mb-3" aria-label="Dashboard charts">
+      <section id="reports-section" class="row g-3 mb-3" aria-label="Dashboard charts">
         <div class="col-12 col-md-6">
           <div class="card border-0 shadow-sm p-3 chart-card">
             <h6 class="fw-bold text-dark mb-2">Protected Area Distribution</h6>
@@ -137,7 +137,7 @@
         </div>
       </section>
 
-      <section class="card border-0 shadow-sm p-3" aria-label="Protected area document directory">
+      <section id="documents-section" class="card border-0 shadow-sm p-3" aria-label="Protected area document directory">
         <div class="directory-header mb-3">
           <h6 class="fw-bold text-dark mb-0">Protected Area Documents Directory</h6>
           <span id="results-count" class="mobile-results-count" aria-live="polite"></span>
@@ -152,7 +152,71 @@
     </div>
   </main>
 
+
+  <!-- Mobile app navigation: these are shortcuts into the existing dashboard, not separate data sources. -->
+  <nav class="mobile-bottom-nav" aria-label="Main navigation">
+    <button type="button" class="mobile-nav-item is-active" data-nav="home" aria-label="Home">
+      <i class="bi bi-house-door-fill" aria-hidden="true"></i><span>Home</span>
+    </button>
+    <button type="button" class="mobile-nav-item" data-nav="resolutions" aria-label="Resolutions">
+      <i class="bi bi-file-earmark-text" aria-hidden="true"></i><span>Resolutions</span>
+    </button>
+    <button type="button" class="mobile-nav-item" data-nav="minutes" aria-label="Minutes">
+      <i class="bi bi-journal-text" aria-hidden="true"></i><span>Minutes</span>
+    </button>
+    <button type="button" class="mobile-nav-item" data-nav="reports" aria-label="Reports">
+      <i class="bi bi-bar-chart-line" aria-hidden="true"></i><span>Reports</span>
+    </button>
+    <button type="button" class="mobile-nav-item" data-nav="more" aria-label="More options">
+      <i class="bi bi-sliders" aria-hidden="true"></i><span>More</span>
+    </button>
+  </nav>
+
   <script src="./app.js"></script>
+
+  <script>
+    (function () {
+      const navItems = Array.from(document.querySelectorAll('.mobile-nav-item'));
+      function setActive(name) {
+        navItems.forEach(function (item) {
+          const active = item.dataset.nav === name;
+          item.classList.toggle('is-active', active);
+          if (active) item.setAttribute('aria-current', 'page');
+          else item.removeAttribute('aria-current');
+        });
+      }
+      function scrollToSection(id) {
+        const target = document.getElementById(id);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      navItems.forEach(function (item) {
+        item.addEventListener('click', function () {
+          const name = item.dataset.nav;
+          setActive(name);
+          if (name === 'home') {
+            const type = document.getElementById('type-filter');
+            if (type && type.value !== 'ALL') {
+              type.value = 'ALL';
+              if (typeof applyFilters === 'function') applyFilters();
+            }
+            scrollToSection('home-section');
+          } else if (name === 'resolutions' || name === 'minutes') {
+            const type = document.getElementById('type-filter');
+            if (type) {
+              type.value = name === 'resolutions' ? 'Resolution' : 'Minutes';
+              if (typeof applyFilters === 'function') applyFilters();
+            }
+            scrollToSection('documents-section');
+          } else if (name === 'reports') {
+            scrollToSection('reports-section');
+          } else if (name === 'more') {
+            scrollToSection('filters-section');
+          }
+        });
+      });
+    })();
+  </script>
+
   <script>
     // Register the PWA service worker. The file must exist at this path.
     if ("serviceWorker" in navigator) {

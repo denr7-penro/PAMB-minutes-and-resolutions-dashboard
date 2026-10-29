@@ -73,27 +73,25 @@
           </div>
 
           <div class="row g-3">
-            <div class="col-12 col-md-2">
+            <div class="col-12 col-md-3">
               <label class="filter-label" for="search-query">SEARCH</label>
               <input type="search" id="search-query" class="form-control" placeholder="Search title or area..." oninput="applyFilters()">
             </div>
+            <!-- Kept hidden for compatibility with the existing app.js and bottom navigation. -->
+            <select id="type-filter" class="d-none" aria-hidden="true" tabindex="-1">
+              <option value="ALL" selected>All Types</option>
+              <option value="Minutes">Minutes</option>
+              <option value="Resolution">Resolution</option>
+            </select>
             <div class="col-12 col-md-2">
-              <label class="filter-label" for="type-filter">TYPE</label>
-              <select id="type-filter" class="form-select" onchange="applyFilters()">
-                <option value="ALL">All Types</option>
-                <option value="Minutes">Minutes</option>
-                <option value="Resolution">Resolution</option>
-              </select>
-            </div>
-            <div class="col-12 col-md-3">
               <label class="filter-label" for="year-filter">YEAR</label>
               <select id="year-filter" class="form-select" onchange="applyFilters()"></select>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4">
               <label class="filter-label" for="pa-filter">PROTECTED AREA</label>
               <select id="pa-filter" class="form-select" onchange="applyFilters()"></select>
             </div>
-            <div class="col-12 col-md-2">
+            <div class="col-12 col-md-3">
               <label class="filter-label" for="status-filter">REMARKS</label>
               <select id="status-filter" class="form-select" onchange="applyFilters()"></select>
             </div>

@@ -19,13 +19,37 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inter", sans-serif;
   background: var(--light-bg);
   color: #1e293b;
   margin: 0;
   padding: 0;
   min-width: 0;
   overflow-x: hidden;
+}
+
+/* Typography: Inter for dashboard content; retain Montserrat for official header text. */
+.header-text-center,
+.header-title-bar,
+.text-rep,
+.text-dept,
+.text-sub {
+  font-family: "Montserrat", sans-serif;
+}
+
+.desktop-nav,
+.mobile-bottom-nav,
+.filter-panel,
+.kpi-card,
+.chart-card,
+.document-card,
+#dashboard-content,
+#desktop-table,
+.google-visualization-table-table,
+.google-visualization-table-th,
+.google-visualization-table-td,
+.google-visualization-table-page-numbers {
+  font-family: "Inter", sans-serif;
 }
 
 img {
@@ -232,7 +256,7 @@ img {
 .google-visualization-table-th,
 .google-visualization-table-td,
 .google-visualization-table-page-numbers {
-  font-family: "Montserrat", sans-serif !important;
+  font-family: "Inter", sans-serif !important;
 }
 
 .google-visualization-table-table {
@@ -652,8 +676,44 @@ body { background: #f3f6f4; color: #172923; padding-bottom: 0; }
 .mobile-doc-card .btn { margin-top: 12px; }
 #desktop-table { min-width: 0; }
 
-/* Fixed bottom app navigation is enabled only on phone-sized screens. */
+/* Desktop navigation is shown on PC/tablet; phone navigation remains fixed at the bottom. */
 .mobile-bottom-nav { display: none; }
+.desktop-nav {
+  max-width: 1480px;
+  margin: 14px auto 18px;
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid #e1e9e3;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(23,61,42,.055);
+}
+.desktop-nav-item {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #52665a;
+  padding: 11px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: inherit;
+  font-size: .88rem;
+  font-weight: 750;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .18s ease, color .18s ease;
+}
+.desktop-nav-item:hover { background: #f1f6f2; color: #1d6b42; }
+.desktop-nav-item.is-active { background: #eaf4ed; color: #17613b; }
+.desktop-nav-item:focus-visible { outline: 2px solid #1d6b42; outline-offset: 1px; }
+@media (max-width: 767.98px) {
+  .desktop-nav { display: none; }
+}
 @media (max-width: 767.98px) {
   body { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
   .custom-header-wrapper { margin-bottom: 13px; border-radius: 0 0 20px 20px; }
